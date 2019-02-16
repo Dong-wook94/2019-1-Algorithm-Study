@@ -3,11 +3,8 @@
 #include <vector>
 #include <queue>
 
-#define TRUE 1
-#define FALSE 0
 using namespace std;
 
-int *building;
 vector <int> build_time;
 vector<vector<int>> build_order;
 vector<int> min_build_time;
@@ -25,16 +22,15 @@ int main() {
 		ACM_Craft();
 	}
 }
-void ACM_Craft(){
-	int n_building, n_rule, i,f_building;
-	int input,a,b;
+void ACM_Craft() {
+	int n_building, n_rule, i, f_building;
+	int input, a, b;
 
 	scanf("%d %d", &n_building, &n_rule);
 
-	building = (int*)malloc(sizeof(int)*(n_building + 1));
 	build_time.push_back(0);
-	build_order.assign(n_building + 1, vector<int>(1,0));
-	precnt.assign(n_building + 1,0);
+	build_order.assign(n_building + 1, vector<int>(1, 0));
+	precnt.assign(n_building + 1, 0);
 	for (i = 1; i <= n_building; i++) {
 		scanf("%d", &input);
 		build_time.push_back(input);
@@ -45,14 +41,7 @@ void ACM_Craft(){
 		precnt[b]++;
 	}
 	scanf("%d", &f_building);
-	
-	/*for (i = 1; i < build_order.size(); i++) {
-		printf("%d : ", i);
-		for (a = 0; a < build_order[i].size(); a++) {
-			printf("%d ", build_order[i][a]);
-		}
-		printf("\n");
-	}*/
+
 	min_build_time.assign(n_building + 1, 0);
 	for (i = 1; i <= n_building; i++) {
 		if (precnt[i] == 0) {
@@ -72,8 +61,7 @@ void ACM_Craft(){
 	}
 	min_build_time[f_building] = min_build_time[f_building] + build_time[f_building];
 	printf("%d\n", min_build_time[f_building]);
-	
-	free(building);
+
 	build_time.clear();
 	build_order.clear();
 	min_build_time.clear();
