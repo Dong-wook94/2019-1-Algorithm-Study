@@ -1,4 +1,6 @@
 # 2178:미로 탐색
 > bfs를이용하여 풀었던 문제
+
 > 해당문제는 (N,M)까지의 최소 칸수를 찾는 문제인데 (1,1)부터 (N,M)까지의 방법중 최소 횟수를 업데이트해주어 최솟값을 출력하였습니다.
->> https://www.acmicpc.net/problem/2178
+
+> https://www.acmicpc.net/problem/2178
