@@ -10,7 +10,7 @@
  1. bfs시도시 메모리초과 
  2. 큰 dp 값을 고려하여 long long 사용
  3. long long 출력형식 %lld 
-
+*
 
 > 출력형식 정리
 
