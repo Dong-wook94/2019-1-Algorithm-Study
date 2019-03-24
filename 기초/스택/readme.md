@@ -6,4 +6,4 @@
 * empty: 스택이 비어있으면 1, 아니면 0을 출력한다.
 * top: 스택의 가장 위에 있는 정수를 출력한다. 만약 스택에 들어있는 정수가 없는 경우에는 -1을 출력한다.
 
-https://www.acmicpc.net/problem/10828
+[백준 10828번 : 스택](https://www.acmicpc.net/problem/10828)
