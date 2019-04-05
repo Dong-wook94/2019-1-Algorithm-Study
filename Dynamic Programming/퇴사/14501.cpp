@@ -11,17 +11,18 @@ typedef struct Schedule {
 Schedule *schedule;
 int *dp;
 int N;//줄수
-int Max=0;
+int Max = 0;
 int main() {
 	scanf("%d", &N);
-	schedule = (Schedule*)malloc(sizeof(Schedule)*(N+1));
-	dp = (int*)calloc(N+1, sizeof(int));
-	for (int i = 1; i <=N; i++) {
+	schedule = (Schedule*)malloc(sizeof(Schedule)*(N + 1));
+	dp = (int*)calloc(N + 1, sizeof(int));
+	for (int i = 1; i <= N; i++) {
 		scanf("%d %d", &schedule[i].term, &schedule[i].pay);
-		if (i + schedule[i].term> N+1) {//예외 이때는 이용못함 이때상담은 총상담일을 지나버림
+		if (i + schedule[i].term > N + 1) {//예외 이때는 이용못함 이때상담은 총상담일을 지나버림
 			schedule[i].pay = 0;
 		}
 	}
+	schedule[0].term = -1;
 	dp[0] = 0;
 	for (int i = 1; i <= N; i++) {
 		for (int j = 0; j < i; j++) {
@@ -31,8 +32,7 @@ int main() {
 					Max = dp[i];
 			}
 		}
-		printf("dp[%d] = %d\n", i, dp[i]);
 	}
-	printf("%d\n",Max);
-	
+	printf("%d\n", Max);
+
 }
