@@ -1,13 +1,7 @@
 #include <stdio.h>
-#include <vector>
-
-using namespace std;
-
-
 
 int N, L;
-int Map[101][101];
-int visited[101][101];
+int Map[100][100];
 int dir_row[2] = {1, 0};
 int dir_col[2] = {0, 1};
 int check_route(int start_row, int start_col, int dir);
@@ -45,13 +39,6 @@ int check_route(int start_row,int start_col,int dir) {
 			}
 			else
 				return 0;
-			/*else if(height == Map[next_row][next_col] + 1){
-				cnt = 0;
-				slope = 0;
-			}
-			else if(height == Map[next_row][next_col] - 1){
-				return 0;
-			}*/
 			
 		}
 		else {//평지인상황
@@ -83,6 +70,6 @@ int check_route(int start_row,int start_col,int dir) {
 	}
 	if (slope != 0)
 		return 0;
-	printf("%d %d \n", start_row, start_col);
+	//printf("%d %d \n", start_row, start_col);
 	return 1;
 }
