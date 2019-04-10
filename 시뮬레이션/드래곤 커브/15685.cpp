@@ -11,9 +11,8 @@ int N;//드래곤 커브개수
 int generation;
 int dir_row[4] = {0,-1,0,1};
 int dir_col[4] = {1,0,-1,0};
-int Map[100][100];
+int Map[101][101];
 int cnt = 0;
-int min_x=100, min_y=100, max_x=0, max_y=0;
 void make_dir_order();
 void MakeDragonCurve(int start_x, int start_y);
 void find_square();
@@ -32,33 +31,19 @@ int main() {
 void MakeDragonCurve(int start_x,int start_y) {//g는 총 세대
 	int next_x = start_x;
 	int next_y = start_y;
-	if (min_x > next_x)
-		min_x = next_x;
-	if (min_y > next_y)
-		min_y = next_y;
-	if (max_x < next_x)
-		max_x = next_x;
-	if (max_y < next_y)
-		max_y = next_y;
+
 	Map[next_y][next_x] = 1;
 	for (int i = 0; i < dir_order.size(); i++) {
 		next_x = next_x + dir_col[dir_order[i]];
 		next_y = next_y + dir_row[dir_order[i]];
-		if (min_x > next_x)
-			min_x = next_x;
-		if (min_y > next_y)
-			min_y = next_y;
-		if (max_x < next_x)
-			max_x = next_x;
-		if (max_y < next_y)
-			max_y = next_y;
+		
 		Map[next_y][next_x] = 1;
 		//printf("(%d %d)\n", next_x, next_y);
 	}
 }
 void find_square() {
-	for (int i = min_x; i < max_x; i++) {
-		for (int j = min_y; j < max_y; j++) {
+	for (int i = 0; i < 100; i++) {
+		for (int j = 0; j < 100; j++) {
 			if (Map[j][i] == 1 && Map[j + 1][i]==1 && Map[j][i + 1]==1 && Map[j + 1][i + 1]==1)
 				cnt++;
 		}
